@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"context"
@@ -24,7 +24,7 @@ func (a *ArticleApiServer) GetArticles(ctx context.Context, rq *v1.GetArticleReq
 	}, nil
 }
 
-func RunServer(ctx context.Context, port string) {
+func (a *ArticleApiServer) RunServer(port string) {
 	listener, err := net.Listen("tcp", ":"+port)
 	if err != nil {
 		log.Fatalf("unable to create listener: %v", err)

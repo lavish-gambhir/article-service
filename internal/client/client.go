@@ -1,4 +1,4 @@
-package main
+package client
 
 import (
 	"context"
@@ -8,8 +8,12 @@ import (
 	"google.golang.org/grpc"
 )
 
-func RunClient(port string) {
-	conn, err := grpc.Dial(":"+port, grpc.WithInsecure())
+type XClient struct{}
+
+func NewXClient() *XClient { return &XClient{} }
+
+func (x *XClient) RunClient(port string) {
+	conn, err := grpc.Dial("localhost:"+port, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("unable to connect: %v", err)
 	}
