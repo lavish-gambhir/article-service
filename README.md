@@ -1,2 +1,2 @@
 # article-service
-Used to retrieve latest articles.
+A gRPC service that retrieves the latest articles.
